@@ -106,7 +106,7 @@ def DIVISION():
 def EQUAL():
     whole_expression = data.get()
     # if = exist in the expression, split it where it occur, get the last index of the resulted sliced list
-    # get the first element even they are only one element
+    # get the first element of the last sliced list even they are only one element
     if '=' in whole_expression:
         whole_expression = whole_expression.split('=')[-1:][0]
     num = str(eval(whole_expression))
