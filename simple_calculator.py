@@ -1,5 +1,6 @@
 from tkinter import *
 import customtkinter as Modern
+from tkinter import messagebox
 
 
 app = Modern.CTk()  #creating cutstom tkinter window
@@ -109,7 +110,10 @@ def EQUAL():
     # get the first element of the last sliced list even they are only one element
     if '=' in whole_expression:
         whole_expression = whole_expression.split('=')[-1:][0]
-    num = str(eval(whole_expression))
+    try:
+        num = str(eval(whole_expression))
+    except SyntaxError as e:
+        messagebox.showerror('Error',e)
 
     data.delete(0, END)
     data.insert(0, f"{whole_expression} = {num}")
